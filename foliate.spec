@@ -1,4 +1,5 @@
 %global appid com.github.johnfactotum.Foliate
+%global abi_package %{nil}
 
 Name:           foliate
 Version:        1.5.3
