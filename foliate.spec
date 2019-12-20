@@ -12,7 +12,7 @@ BuildArch:      noarch
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  intltool
-BuildRequires:  libappstream-glib
+BuildRequires:  appstream-glib-lib
 BuildRequires:  meson
 BuildRequires:  pkgconfig(gjs-1.0)
 BuildRequires:  pkgconfig(gtk+-3.0)
