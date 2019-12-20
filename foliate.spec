@@ -50,15 +50,9 @@ CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --
 ninja -v -C builddir
 
 %install
-# Ambiguous python shebang
-find %{buildroot}%{_datadir}/%{appid}/assets/KindleUnpack/ -type f -name "*.py" -exec sed -e 's@/usr/bin/env python@/usr/bin/python3@g' -i "{}" \;
-find %{buildroot}%{_datadir}/%{appid}/assets/KindleUnpack/ -type f -name "mobiml2xhtml.py" -exec sed -e 's@/usr/bin/python@/usr/bin/python3@g' -i "{}" \;
 DESTDIR=%{buildroot} ninja -C builddir install
 %find_lang %{appid}
 
-%check
-appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{appid}.appdata.xml
-desktop-file-validate %{buildroot}%{_datadir}/applications/%{appid}.desktop
 
 %files -f %{appid}.lang
 %license COPYING
