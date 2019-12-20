@@ -1,4 +1,4 @@
-%global appname com.github.johnfactotum.Foliate
+%global appid com.github.johnfactotum.Foliate
 
 Name:           foliate
 Version:        1.5.3
@@ -33,30 +33,42 @@ A simple and modern GTK eBook viewer, built with GJS and Epub.js.
 %setup
 
 %build
-%meson
-%meson_build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1569975130
+export GCC_IGNORE_WERROR=1
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain   builddir
+ninja -v -C builddir
 
 %install
-%meson_install
 # Ambiguous python shebang
-find %{buildroot}%{_datadir}/%{appname}/assets/KindleUnpack/ -type f -name "*.py" -exec sed -e 's@/usr/bin/env python@/usr/bin/python3@g' -i "{}" \;
-find %{buildroot}%{_datadir}/%{appname}/assets/KindleUnpack/ -type f -name "mobiml2xhtml.py" -exec sed -e 's@/usr/bin/python@/usr/bin/python3@g' -i "{}" \;
-
-%find_lang %{appname}
+find %{buildroot}%{_datadir}/%{appid}/assets/KindleUnpack/ -type f -name "*.py" -exec sed -e 's@/usr/bin/env python@/usr/bin/python3@g' -i "{}" \;
+find %{buildroot}%{_datadir}/%{appid}/assets/KindleUnpack/ -type f -name "mobiml2xhtml.py" -exec sed -e 's@/usr/bin/python@/usr/bin/python3@g' -i "{}" \;
+DESTDIR=%{buildroot} ninja -C builddir install
+%find_lang %{appid}
 
 %check
-appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{appname}.appdata.xml
-desktop-file-validate %{buildroot}%{_datadir}/applications/%{appname}.desktop
+appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{appid}.appdata.xml
+desktop-file-validate %{buildroot}%{_datadir}/applications/%{appid}.desktop
 
-%files -f %{appname}.lang
+%files -f %{appid}.lang
 %license COPYING
 %doc README.md
-%{_bindir}/%{appname}
-%{_datadir}/%{appname}
-%{_datadir}/applications/%{appname}.desktop
-%{_datadir}/glib-2.0/schemas/%{appname}.gschema.xml
+%{_bindir}/%{appid}
+%{_datadir}/%{appid}
+%{_datadir}/applications/%{appid}.desktop
+%{_datadir}/glib-2.0/schemas/%{appid}.gschema.xml
 %{_datadir}/icons/hicolor/*/apps/*.svg
-%{_metainfodir}/%{appname}.appdata.xml
+%{_metainfodir}/%{appid}.appdata.xml
 
 %changelog
 # based on https://koji.fedoraproject.org/koji/packageinfo?packageID=28865
