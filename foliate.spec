@@ -62,7 +62,8 @@ DESTDIR=%{buildroot} ninja -C builddir install
 %{_datadir}/applications/%{appid}.desktop
 %{_datadir}/glib-2.0/schemas/%{appid}.gschema.xml
 %{_datadir}/icons/hicolor/*/apps/*.svg
-%{_metainfodir}/%{appid}.appdata.xml
+/usr/share/metainfo/%{appid}.appdata.xml
+
 
 %changelog
 # based on https://koji.fedoraproject.org/koji/packageinfo?packageID=28865
