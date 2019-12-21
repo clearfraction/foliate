@@ -54,6 +54,8 @@ ninja -v -C builddir
 DESTDIR=%{buildroot} ninja -C builddir install
 %find_lang %{appid}
 
+%post
+glib-compile-schemas /usr/share/glib-2.0/schemas
 
 %files -f %{appid}.lang
 %license COPYING
