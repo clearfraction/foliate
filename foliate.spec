@@ -2,14 +2,14 @@
 %global abi_package %{nil}
 
 Name:           foliate
-Version:        1.5.3
+Version:         2.0.0
 Release:        1%{?dist}
-Summary:        Simple and modern GTK eBook reader
+Summary:     Simple and modern GTK eBook reader
 
 License:        GPLv3+
-URL:            https://johnfactotum.github.io/foliate/
-Source0:        https://github.com/johnfactotum/foliate/archive/%{version}/%{name}-%{version}.tar.gz
-BuildArch:      noarch
+URL:              https://johnfactotum.github.io/foliate/
+Source0:       https://github.com/johnfactotum/foliate/archive/%{version}/%{name}-%{version}.tar.gz
+BuildArch:     noarch
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  intltool
@@ -18,7 +18,7 @@ BuildRequires:  meson
 BuildRequires:  pkgconfig(gjs-1.0)
 BuildRequires:  pkgconfig(gtk+-3.0)
 BuildRequires:  pkgconfig(webkit2gtk-4.0)
-Requires:       hicolor-icon-theme
+Requires:          hicolor-icon-theme
 # For text-to-speech (TTS) support
 # Recommends:     espeak-ng
 # Support for viewing .mobi, .azw, and .azw3 files
@@ -61,7 +61,7 @@ glib-compile-schemas /usr/share/glib-2.0/schemas
 %license COPYING
 %doc README.md
 %{_bindir}/%{appid}
-%{_datadir}/%{appid}
+%{_datadir}/%{name}
 %{_datadir}/applications/%{appid}.desktop
 %{_datadir}/glib-2.0/schemas/%{appid}.gschema.xml
 %{_datadir}/icons/hicolor/*/apps/*.svg
