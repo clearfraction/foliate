@@ -61,7 +61,7 @@ glib-compile-schemas /usr/share/glib-2.0/schemas
 %license COPYING
 %doc README.md
 %{_bindir}/%{appid}
-%{_datadir}/%{name}
+%{_datadir}/%{appid}
 %{_datadir}/applications/%{appid}.desktop
 %{_datadir}/glib-2.0/schemas/%{appid}.gschema.xml
 %{_datadir}/icons/hicolor/*/apps/*.svg
