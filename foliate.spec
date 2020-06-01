@@ -2,14 +2,14 @@
 %global abi_package %{nil}
 
 Name:           foliate
-Version:         2.1.1
-Release:        1%{?dist}
-Summary:     Simple and modern GTK eBook reader
+Version:        2.2.0
+Release:        1
+Summary:        Simple and modern GTK eBook reader
 
-License:       GPLv3+
-URL:           https://johnfactotum.github.io/foliate/
-Source0:       https://github.com/johnfactotum/foliate/archive/%{version}/%{name}-%{version}.tar.gz
-BuildArch:     noarch
+License:        GPLv3+
+URL:            https://johnfactotum.github.io/foliate/
+Source0:        https://github.com/johnfactotum/foliate/archive/%{version}/%{name}-%{version}.tar.gz
+BuildArch:      noarch
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  intltool
