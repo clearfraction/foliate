@@ -2,7 +2,7 @@
 %global abi_package %{nil}
 
 Name:           foliate
-Version:        2.2.0
+Version:        2.3.0
 Release:        1
 Summary:        Simple and modern GTK eBook reader
 
