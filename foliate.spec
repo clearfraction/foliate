@@ -2,7 +2,7 @@
 %global abi_package %{nil}
 
 Name:           foliate
-Version:        2.4.2
+Version:        2.5.0
 Release:        1
 Summary:        Simple and modern GTK eBook reader
 
@@ -35,7 +35,6 @@ A simple and modern GTK eBook viewer, built with GJS and Epub.js.
 
 %build
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1569975130
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
