@@ -3,14 +3,13 @@
 
 Name:           foliate
 Version:        2.6.3
-Release:        1
+Release:        2
 Summary:        Simple and modern GTK eBook reader
-
 License:        GPLv3+
 URL:            https://johnfactotum.github.io/foliate/
-Source0:        https://github.com/johnfactotum/foliate/archive/%{version}/%{name}-%{version}.tar.gz
+#Source0:        https://github.com/johnfactotum/foliate/archive/%%{version}/%%{name}-%%{version}.tar.gz
+Source:         https://github.com/johnfactotum/foliate/archive/refs/heads/master.zip
 BuildArch:      noarch
-
 BuildRequires:  desktop-file-utils
 BuildRequires:  intltool
 BuildRequires:  appstream-glib glib-dev
@@ -31,7 +30,7 @@ Requires:       hicolor-icon-theme
 A simple and modern GTK eBook viewer, built with GJS and Epub.js.
 
 %prep
-%setup
+%setup -n foliate-master
 
 %build
 export LANG=C.UTF-8
@@ -61,7 +60,7 @@ glib-compile-schemas /usr/share/glib-2.0/schemas
 %{_datadir}/applications/%{appid}.desktop
 %{_datadir}/glib-2.0/schemas/%{appid}.gschema.xml
 %{_datadir}/icons/hicolor/*/apps/*.svg
-/usr/share/metainfo/%{appid}.appdata.xml
+/usr/share/metainfo/*.xml
 
 
 %changelog
