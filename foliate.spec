@@ -16,7 +16,7 @@ BuildRequires:  appstream-glib glib-dev
 BuildRequires:  meson
 BuildRequires:  pkgconfig(gjs-1.0)
 BuildRequires:  pkgconfig(gtk+-3.0)
-BuildRequires:  pkgconfig(webkit2gtk-4.0)
+BuildRequires:  pkgconfig(webkit2gtk-6.0)
 BuildRequires:  pkgconfig(iso-codes)
 Requires:       hicolor-icon-theme
 # For text-to-speech (TTS) support
